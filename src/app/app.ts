@@ -55,10 +55,7 @@ export class AppComponent {
     private cdr: ChangeDetectorRef,
     @Inject(PLATFORM_ID) platformId: Object,
   ) {
-    // Vérification de la plateforme
     this.isBrowser = isPlatformBrowser(platformId);
-
-    // On n'initialise l'audio que si on est sur un navigateur
     if (this.isBrowser) {
       this.bgMusic = new Audio('waiting.mp3');
       this.victoryMusic = new Audio('celeb.mp3');
@@ -111,7 +108,7 @@ export class AppComponent {
         this.currentGif = this.imgDefault;
         this.cdr.detectChanges();
       }
-    }, 1000);
+    }, 3000);
   }
 
   onYesClick() {
